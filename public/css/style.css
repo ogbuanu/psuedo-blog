@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: rgb(63, 121, 245);
+  --black: rgb(12, 10, 10);
+  --primary-color: #e5e5e5;
+  --background-color: #155799;
+}
+
+p {
+  color: pink;
+}
