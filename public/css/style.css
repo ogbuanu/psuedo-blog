@@ -1,0 +1,76 @@
+<<<<<<< HEAD
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    /* border: 2px solid black; */
+    position: relative;
+    width: 40%;
+    padding-top: 30px;
+    padding-left: 60px;
+    height: 350px;
+    left: 700px;
+    border-radius: 20px;
+    top: 100px;
+    background-color: #90b8e0;
+}
+.container h1{
+    text-align: center;
+    color: rgb(0, 5, 8);
+    position: relative;
+}
+form .form-row{
+/* border: 1px solid red; */
+margin-top: 20px;
+}
+form .form-row input{
+    position: relative;
+    left: 50px;
+    width: 50%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+}
+form .form-row #email{
+    position: relative;
+    left: 71px;
+}
+form .form-row #username{
+    position: relative;
+    left: 45px;
+}
+form .form-row #submit{
+    background-color: black;
+    color: white;
+    width: 30%;
+    border-radius: 10px;
+    position: relative;
+    left: 250px;
+}
+form .form-row #submit:hover{
+    background-color: blueviolet;
+    transition: 1.5s;
+    border: 2px solid blueviolet;
+    padding-top: 7px;
+    padding-bottom: 6px;
+}
+.container p{
+    position: relative;
+    top: -25px;
+    /* border: 2px solid black; */
+    width: 50%;
+}
+.container a{
+    text-decoration: none;
+}
+@media only screen and (max-width:768px) {
+    .container{
+        position: relative;
+    }
+}
+=======
+
+>>>>>>> 2cad43b1c9106ee3414c21294717858daf21b18e
