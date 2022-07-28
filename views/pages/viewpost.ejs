@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {title: "post"})  %> 
+<body>
+<%- include("../partials/navbar.ejs")  %> 
+
+<section class="container mt-5 pt-5">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Arinze </h5>
+          <h6 class="card-subtitle mb-2 text-muted">Nice title</h6>
+          <p class="card-text">Nice content.</p>
+          
+            <a href="/editpost/1" class="card-link text-warning">Edit</a>
+            <a href="/deletepost/1" class="card-link text-danger">Delete</a>
+        
+        </div>
+    </div>
+ </section>
+<hr>
+
+<section class="container mt-5">
+  <form action="/add-comment/1" method="post">
+      <textarea name="comment" id="" cols="10" rows="2"></textarea> <br>
+      <button class="btn btn-dark" type="submit">Add</button>
+  </form>
+  <h1>comments (1 )</h1>
+
+    <div class="card mt-5 mb-5" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Arinze </h5>
+     
+        <p class="card-text">Nice post</p>
+        
+          <a href="/deletecomment/" class="card-link text-danger">Delete</a>
+      
+      
+      </div>
+    </div>
+
+
+</section> 
+    
+</body>
+</html>
