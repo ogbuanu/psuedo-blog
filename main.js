@@ -22,4 +22,4 @@ app.use(viewpostRoute)
 
 
 
-app.listen(3000)
+app.listen(2000)
