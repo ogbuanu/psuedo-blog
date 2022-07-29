@@ -7,12 +7,20 @@
 <section class="container mt-5 pt-5">
     <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Arinze </h5>
-          <h6 class="card-subtitle mb-2 text-muted">Nice title</h6>
-          <p class="card-text">Nice content.</p>
+          <h6 class="card-subtitle mb-2 text-muted"><%= post.createdAt.toString() %> </h6>
+          <h5 class="card-title"> <%= post.owner.username %> </h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= post.title %> </h6>
           
-            <a href="/editpost/1" class="card-link text-warning">Edit</a>
+          <p class="card-text"><%= post.body %>.</p>
+
+          <% if (user) { %>
+            <% if (post.owner._id == user._id) { %>
+             <a href="/editpost/1" class="card-link text-warning">Edit</a>
             <a href="/deletepost/1" class="card-link text-danger">Delete</a>
+          <% } %>
+          <% } %>
+         
+          
         
         </div>
     </div>
@@ -20,23 +28,35 @@
 <hr>
 
 <section class="container mt-5">
-  <form action="/add-comment/1" method="post">
+  <% if (user) { %>
+    <form action="/add-comment/1" method="post">
       <textarea name="comment" id="" cols="10" rows="2"></textarea> <br>
       <button class="btn btn-dark" type="submit">Add</button>
   </form>
-  <h1>comments (1 )</h1>
+  <% } %>
+  <h1>comments (<%= post.comments.length %>)</h1>
 
-    <div class="card mt-5 mb-5" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Arinze </h5>
-     
-        <p class="card-text">Nice post</p>
+<% if (post.comments.length) { %>
+ <% post.comments.forEach(comment => { %>
+  <div class="card mt-5 mb-5" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Arinze </h5>
+   
+      <p class="card-text">Nice post</p>
+      <% if (user) { %>
+       <% if (comment.owner._id == user._id) { %>
+        <a href="/deletecomment/" class="card-link text-danger">Delete</a>
         
-          <a href="/deletecomment/" class="card-link text-danger">Delete</a>
+       <% } %>
+      <% } %>
       
-      
-      </div>
+    
+    
     </div>
+  </div>
+ <% }) %>
+
+<% } %>
 
 
 </section> 
