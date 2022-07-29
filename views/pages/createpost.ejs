@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <title>create post</title>
-</head>
+<%- include("../partials/head.ejs", {title: "Create post"}) %> 
 <body>
-  <%- include("partials/head.ejs") %> 
-
-    <form style="width: 80%;margin: auto;padding-top:200px;"  method="post">
+  <%- include("../partials/navbar.ejs") %> 
+  
+    <form  method="post" class="bg-dark mt-5 p-5">
+      <h1 class="h1 text-light">Create post.</h1>
     <div class="mb-3">
         <input style="font-weight:bolder;" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title" minlength="5">
       </div>
@@ -27,7 +22,7 @@
         <button class="btn btn-light" type="submit">Post</button>
       </div>
     </form>
-    <%- include("partials/footer.ejs") %> 
-      <script src="/js/bootstrap.bundle.js"></script>
-</body>s
+    <%- include("../partials/foot.ejs") %> 
+      <!-- <script src="/js/bootstrap.bundle.js"></script> -->
+</body>
 </html>
