@@ -4,6 +4,9 @@
 <body>
     <div class="container p-5">
         <h1 class="h1 text-center">Login Here</h1>
+        <% if (message == "invalid") { %>
+         <span class="text-danger">Invalid credentials</span>
+        <% } %>
         <form method="post" class="bg-dark p-3">
             <div class="mb-3">
                 <label for="username" class="form-label text-light">Username</label>
@@ -13,6 +16,12 @@
                 <label for="Password" class="form-label text-light">Password</label>
                 <input type="password" class="form-control" id="Password" name="password" placeholder="Enter Password">
               </div>
+              <% if (errors) { %>
+              <% errors.forEach(error => { %>
+                <span class="text-danger"><%= error.param %>: <%= error.msg %>  </span> <br>
+              <% }) %>
+                <% } %>
+
               <button type="submit" class="btn btn-light"> Submit</button>
               <p class="text-light">Not registered? click <a href="/auth/register">here</a> to register</p>
         </form>
