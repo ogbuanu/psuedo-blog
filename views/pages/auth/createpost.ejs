@@ -15,11 +15,16 @@
         <input style="font-weight:bolder;" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title" minlength="5">
       </div>
       <div class="mb-3">
-        <textarea style="font-weight:bolder;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your story" minlength="10" name="post"></textarea>
+        <textarea style="font-weight:bolder;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your story" minlength="10" name="body"></textarea>
         
       </div>
-      <div class="col-12">
-        <button style="margin-left:800px ;"  class="btn btn-primary" type="submit">Post</button>
+      <% if (errors) { %>
+       <% errors.forEach(error => { %>
+        <span class="text-danger"><%= error.param %>; <%= error.msg %>  </span>
+       <% }) %>
+      <% } %>
+      <div class="col">
+        <button class="btn btn-light" type="submit">Post</button>
       </div>
     </form>
     <%- include("partials/footer.ejs") %> 
