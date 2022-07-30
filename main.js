@@ -8,6 +8,12 @@ const session = require("express-session")
 const { connectDB } = require("./models")
 const { createpostRoute } = require("./routes/createpost")
 const { isLoggedIn, isLoggedOut } = require("./middlewares/SessionMiddleware")
+const { editpostRoute } = require("./routes/editpost")
+const { isOwner } = require("./middlewares/Authorization")
+const { deletepostRoute } = require("./routes/deletepost")
+const { addcommentRoute } = require("./routes/addcomment")
+const { deletecommentRoute } = require("./routes/deletecomment")
+const { logoutRoute } = require("./routes/logout")
 require("dotenv").config()
 
 const app = express()
@@ -23,11 +29,17 @@ app.use(homeRoute)
 app.use(viewpostRoute)
 
 // Auth pages
+app.use("/auth", logoutRoute)
 app.use("/auth",isLoggedOut, loginRoute)
 app.use("/auth",isLoggedOut, registerRoute)
 
 // User Activities
 app.use(isLoggedIn, createpostRoute)
+app.use(isLoggedIn, isOwner, editpostRoute)
+app.use(isLoggedIn, isOwner, deletepostRoute)
+app.use(isLoggedIn, addcommentRoute)
+app.use(isLoggedIn, deletecommentRoute)
+
 
 
 
