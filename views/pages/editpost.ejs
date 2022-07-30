@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
- <%- include("partials/head.ejs")  %> 
-<body>
-  <%- include("partials/navbar.ejs") %> 
 
-    <form style="width: 80%;margin: auto;padding-top:200px;"  method="post">
+</html><!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {title: post.title}) %> 
+<body>
+  <%- include("../partials/navbar.ejs") %> 
+  
+    <form  method="post" class="bg-dark mt-5 p-5">
+      <h1 class="h1 text-light">Create post.</h1>
     <div class="mb-3">
-        <input style="font-weight:bolder;" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" value="nice title" name="title" minlength="5">
+        <input style="font-weight:bolder;" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title" minlength="5" value="<%= post.title %> ">
       </div>
       <div class="mb-3">
-        <textarea style="font-weight:bolder;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your story" name="body" minlength="10" >nice post</textarea>
+        <textarea style="font-weight:bolder;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your story" minlength="10" name="body"><%= post.body %> </textarea>
         
       </div>
-      <div class="col-12">
-        <button style="margin-left:800px ;"  class="btn btn-primary" type="submit">Edit</button>
+      <% if (errors) { %>
+       <% errors.forEach(error => { %>
+        <span class="text-danger"><%= error.param %><%= error.msg %>  </span>
+       <% }) %>
+      <% } %>
+      <div class="col">
+        <button class="btn btn-light" type="submit">Post</button>
       </div>
     </form>
-    <%- include("partials/foot.ejs") %> 
-      <script src="/js/bootstrap.bundle.js"></script>
+    <%- include("../partials/foot.ejs") %> 
+      <!-- <script src="/js/bootstrap.bundle.js"></script> -->
 </body>
 </html>
