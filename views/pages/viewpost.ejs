@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("../partials/head.ejs", {title: "post"})  %> 
+<%- include("../partials/head.ejs", {title: post.title})  %> 
 <body>
 <%- include("../partials/navbar.ejs")  %> 
 
@@ -15,8 +15,8 @@
 
           <% if (user) { %>
             <% if (post.owner._id == user._id) { %>
-             <a href="/editpost/1" class="card-link text-warning">Edit</a>
-            <a href="/deletepost/1" class="card-link text-danger">Delete</a>
+             <a href="/editpost/<%= post.id %> " class="card-link text-warning">Edit</a>
+            <a href="/deletepost/<%= post.id %> " class="card-link text-danger">Delete</a>
           <% } %>
           <% } %>
          
@@ -29,8 +29,8 @@
 
 <section class="container mt-5">
   <% if (user) { %>
-    <form action="/add-comment/1" method="post">
-      <textarea name="comment" id="" cols="10" rows="2"></textarea> <br>
+    <form action="/<%= post.id %>/addcomment " method="post">
+      <textarea name="body" id="" cols="10" rows="2"></textarea> <br>
       <button class="btn btn-dark" type="submit">Add</button>
   </form>
   <% } %>
@@ -40,12 +40,13 @@
  <% post.comments.forEach(comment => { %>
   <div class="card mt-5 mb-5" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Arinze </h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= comment.createdAt.toString() %> </h6>
+      <h5 class="card-title"><%= comment.owner.username %>  </h5>
    
-      <p class="card-text">Nice post</p>
+      <p class="card-text"><%= comment.body %> </p>
       <% if (user) { %>
        <% if (comment.owner._id == user._id) { %>
-        <a href="/deletecomment/" class="card-link text-danger">Delete</a>
+        <a href="/<%= post.id %>/deletecomment/<%= comment.id %>" class="card-link text-danger">Delete</a>
         
        <% } %>
       <% } %>
