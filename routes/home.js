@@ -1,4 +1,4 @@
-const route = require("express").Router()
+route = require("express").Router()
 
 const {homeController} = require("../controllers/homeController")
 
